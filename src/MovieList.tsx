@@ -38,6 +38,7 @@ const MovieList = ({ genreId }: { genreId: number }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
+            transition={{ duration: 1 }}
           >
             <img
               src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}

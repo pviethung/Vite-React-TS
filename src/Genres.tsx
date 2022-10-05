@@ -8,8 +8,10 @@ interface Genre {
 
 const Genres = ({
   onGenreSelect,
+  currentGenre,
 }: {
   onGenreSelect: (genreId: number) => void;
+  currentGenre: number;
 }) => {
   const [genres, setGenres] = useState<Genre[]>([]);
 
@@ -36,13 +38,18 @@ const Genres = ({
   return (
     <div className="btns">
       {genres.length > 0 && (
-        <button onClick={handleGenreSelect(0)} key="0">
+        <button
+          className={currentGenre === 0 ? 'active' : ''}
+          onClick={handleGenreSelect(0)}
+          key="0"
+        >
           All
         </button>
       )}
       {genres.length > 0 &&
         genres.map((genre) => (
           <button
+            className={currentGenre === parseInt(genre.id) ? 'active' : ''}
             onClick={handleGenreSelect(parseInt(genre.id))}
             key={genre.id}
           >

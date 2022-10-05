@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="app">
-      <Genres onGenreSelect={handleGenreSelect} />
+      <Genres currentGenre={genre} onGenreSelect={handleGenreSelect} />
       <MovieList genreId={genre} />
     </div>
   );
